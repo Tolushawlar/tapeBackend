@@ -7,8 +7,10 @@ router.post('/products', async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();
+    console.log("fulfilled")
     res.status(201).json(product);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: error.message });
   }
 });
